@@ -50,13 +50,13 @@ withParentMenuId: (int)theParentMenuId
 }
 @end
 
-@interface AppDelegate: NSObject <NSApplicationDelegate>
+@interface SysTrayAppDelegate: NSObject <NSApplicationDelegate>
   - (void) add_or_update_menu_item:(MenuItem*) item;
   - (IBAction)menuHandler:(id)sender;
   @property (assign) IBOutlet NSWindow *window;
   @end
 
-  @implementation AppDelegate
+  @implementation SysTrayAppDelegate
 {
   NSStatusItem *statusItem;
   NSMenu *menu;
@@ -226,7 +226,7 @@ NSMenuItem *find_menu_item(NSMenu *ourMenu, NSNumber *menuId) {
 @end
 
 void registerSystray(void) {
-  AppDelegate *delegate = [[AppDelegate alloc] init];
+  SysTrayAppDelegate *delegate = [[SysTrayAppDelegate alloc] init];
   [[NSApplication sharedApplication] setDelegate:delegate];
   // A workaround to avoid crashing on macOS versions before Catalina. Somehow
   // SIGSEGV would happen inside AppKit if [NSApp run] is called from a
@@ -244,7 +244,7 @@ int nativeLoop(void) {
 }
 
 void runInMainThread(SEL method, id object) {
-  [(AppDelegate*)[NSApp delegate]
+  [(SysTrayAppDelegate*)[NSApp delegate]
     performSelectorOnMainThread:method
                      withObject:object
                   waitUntilDone: YES];
