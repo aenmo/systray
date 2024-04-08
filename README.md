@@ -30,7 +30,7 @@ func onExit() {
 }
 ```
 
-See [![full API](https://pkg.go.dev/badge/github.com/getlantern/systray.svg)](https://pkg.go.dev/github.com/getlantern/systray) as well as [CHANGELOG](https://github.com/getlantern/systray/tree/master/CHANGELOG.md).
+See [![full API](https://pkg.go.dev/badge/github.com/aenmo/systray.svg)](https://pkg.go.dev/github.com/aenmo/systray) as well as [CHANGELOG](https://github.com/aenmo/systray/tree/master/CHANGELOG.md).
 
 Note: this package requires cgo, so make sure you set `CGO_ENABLED=1` before building.
 
@@ -39,7 +39,7 @@ Note: this package requires cgo, so make sure you set `CGO_ENABLED=1` before bui
 Have go v1.12+ or higher installed? Here's an example to get started on macOS:
 
 ```sh
-git clone https://github.com/getlantern/systray
+git clone https://github.com/aenmo/systray
 cd systray/example
 env GO111MODULE=on go build
 ./example
